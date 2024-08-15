@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public GameObject player;
+    public int recoilStrength = 300;
     void Start()
     {
         
@@ -32,7 +33,7 @@ public class Gun : MonoBehaviour
         // Set bullets vel to the direction of the gun
         bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.right * 10;
 
-        // Add a recoil back to the player
-        player.GetComponent<Rigidbody2D>().AddForce(-player.transform.right * 100);
+        // Add a recoil momentum to the player
+        player.GetComponent<Rigidbody2D>().AddForce(-bullet.transform.right * recoilStrength);
     }
 }
