@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed = 5f;
-
+    public int health = 100;
     void Start()
     {
         // Initialization if needed
@@ -35,5 +35,10 @@ public class PlayerController : MonoBehaviour
         }
 
         rb.velocity = moveDirection.normalized * speed;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 }
